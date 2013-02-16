@@ -20,6 +20,7 @@ if (class_exists('multioptionstheme')) return;
 
 class multioptionstheme extends theme {
 	public $user_configured = true;
+    public $stock_theme = true;
 
 	function name() { return "Multi-Options Theme"; }
 	function author() { return "David Leffler"; }
