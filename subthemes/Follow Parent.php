@@ -4,10 +4,10 @@
     <?php 
     expTheme::head(array(
 	    "xhtml"=>false,
-        "css_primer"=>array(YUI3_RELATIVE."cssreset/reset-min.css",
-            YUI3_RELATIVE."cssfonts/fonts-min.css",
-            YUI3_RELATIVE."cssgrids/grids-min.css"),
-    	"css_core"=>array("common"),
+        "normalize"=>true,
+    	"css_core"=>array(
+            "common"
+        ),
     	"css_links"=>true,
     	"css_theme"=>true
         )
@@ -28,12 +28,13 @@
 				<?php expTheme::main(); ?>
 			</div>
 			<div id="sidebar">
-				<?php expTheme::module(array("module"=>"container","view"=>"Default","source"=>"@left","scope"=>"top-sectional")); ?>
+				<?php //expTheme::module(array("module"=>"container","view"=>"Default","source"=>"@left","scope"=>"top-sectional")); ?>
+                <?php expTheme::module(array("controller"=>"container2","action"=>"showall","view"=>"showall","source"=>"@left","scope"=>"top-sectional")); ?>
 			</div>
 		</div>
 	</div>
 	<div id="footer">
-		<?php expTheme::module(array("controller"=>"text","action"=>"showall","view"=>"single","source"=>"@footer","chrome"=>1)) ?>
+		<?php expTheme::module(array("controller"=>"text","action"=>"showall","view"=>"showall_single","source"=>"@footer","chrome"=>1)) ?>
 	</div>
     <?php expTheme::foot(); ?>
 </body>

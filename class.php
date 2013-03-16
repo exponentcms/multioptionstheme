@@ -2,7 +2,7 @@
 
 ##################################################
 #
-# Copyright (c) 2004-2012 OIC Group, Inc.
+# Copyright (c) 2004-2013 OIC Group, Inc.
 #
 # This file is part of Exponent
 #
@@ -74,10 +74,10 @@ class multioptionstheme extends theme {
 		$form->register('multi_color',gt('Theme Color').': ',new dropdowncontrol($settings['MULTI_COLOR'],$theme_colors));
 		$form->register('btn_color',gt('Button Color').': ',new dropdowncontrol($settings['BTN_COLOR'],$theme_colors));
 		$form->register('btn_size',gt('Button Size').': ',new dropdowncontrol($settings['BTN_SIZE'],$button_sizes));
-		$form->register(null,'',new htmlcontrol('<br>'));
+//		$form->register(null,'',new htmlcontrol('<br>'));
 		$form->register('submit','',new buttongroupcontrol(gt('Save'),'',gt('Cancel')));
 		assign_to_template(array(
-            'name'=>self::name(),
+            'name'=>$this->name().(!empty($_GET['sv'])?' '.$_GET['sv']:''),
             'form_html'=>$form->tohtml()
         ));
 	}
