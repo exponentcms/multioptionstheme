@@ -17,9 +17,9 @@
 <body class="<?php echo MULTI_COLOR.' '.MULTI_SIZE.' '.MULTI_FONT; ?>">
 	<div id="wrap">
 		<div id="header">
-			<h1 id="logo">
+			<div id="logo">
 				<a href="<?php echo URL_FULL; ?>" title="<?php echo SITE_TITLE; ?>"><?php echo ORGANIZATION_NAME; ?></a> <sub><?php echo SITE_HEADER; ?></sub>
-			</h1>
+			</div>
 			<?php expTheme::module(array("controller"=>"login","action"=>"showlogin","view"=>"showlogin_flyoutYUI")); ?>
             <?php expTheme::module(array("controller"=>"navigation","action"=>"showall","view"=>"showall_YUI Top Nav")); ?>
 		</div>
