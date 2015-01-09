@@ -2,7 +2,7 @@
 
 ##################################################
 #
-# Copyright (c) 2004-2013 OIC Group, Inc.
+# Copyright (c) 2004-2014 OIC Group, Inc.
 #
 # This file is part of Exponent
 #
@@ -64,11 +64,11 @@ class multioptionstheme extends theme {
 			"courier"=>'Courier',
 		);
 
-		$settings = expSettings::parseFile(BASE."themes/".$_GET['theme']."/config.php");
+		$settings = expSettings::parseFile(BASE."themes/".$this->params['theme']."/config.php");
 		$form = new form();
 		$form->meta('controller','administration');
 		$form->meta('action','update_theme');
-		$form->meta('theme',$_GET['theme']);
+		$form->meta('theme',$this->params['theme']);
 		$form->register('multi_size',gt('Theme Width').': ',new dropdowncontrol($settings['MULTI_SIZE'],$theme_widths));
 		$form->register('multi_font',gt('Theme Font').': ',new dropdowncontrol($settings['MULTI_FONT'],$theme_fonts));
 		$form->register('multi_color',gt('Theme Color').': ',new dropdowncontrol($settings['MULTI_COLOR'],$theme_colors));
@@ -77,7 +77,7 @@ class multioptionstheme extends theme {
 //		$form->register(null,'',new htmlcontrol('<br>'));
 		$form->register('submit','',new buttongroupcontrol(gt('Save'),'',gt('Cancel')));
 		assign_to_template(array(
-            'name'=>$this->name().(!empty($_GET['sv'])?' '.$_GET['sv']:''),
+            'name'=>$this->name().(!empty($this->params['sv'])?' '.$this->params['sv']:''),
             'form_html'=>$form->tohtml()
         ));
 	}
